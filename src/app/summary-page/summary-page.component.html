@@ -3,7 +3,7 @@
     <div class="card p-3 w-100">
       <h3 class="card-title text-center">Welcome</h3>
       <p class="card-text text-center">With supporting text below as a natural lead-in to additional content</p>
-      <a routerLink="navigator" class="btn btn-primary align-self-center">See transactions</a>
+      <a routerLink="navigator" [queryParams]="{tab: 0}" class="btn btn-primary align-self-center">See transactions</a>
       <hr>
       <p class="card-text text-center">You have {{transactions.total}} transactions</p>
     </div>
@@ -13,14 +13,14 @@
       <div class="card p-3">
         <h3 class="card-title">{{(transactions.data | transactionFilter:'income').length}}</h3>
         <p class="card-text mb-4">Income</p>
-        <a href="#" class="btn btn-primary align-self-end">See all</a>
+        <a routerLink="navigator" [queryParams]="{tab: 0}" class="btn btn-primary align-self-end">See all</a>
       </div>
     </div>
     <div class="col-md p-0 pl-md-2">
       <div class="card p-3">
         <h3 class="card-title">{{(transactions.data | transactionFilter:'investment').length}}</h3>
         <p class="card-text mb-4">Investments</p>
-        <a href="#" class="btn btn-primary align-self-end">See all</a>
+        <a routerLink="navigator" [queryParams]="{tab: 3}" class="btn btn-primary align-self-end">See all</a>
       </div>
     </div>
   </div>
@@ -29,14 +29,14 @@
       <div class="card p-3">
         <h3 class="card-title">{{(transactions.data | transactionFilter:'outcome').length}}</h3>
         <p class="card-text mb-4">Outcome</p>
-        <a href="#" class="btn btn-primary align-self-end">See all</a>
+        <a routerLink="navigator" [queryParams]="{tab: 1}" class="btn btn-primary align-self-end">See all</a>
       </div>
     </div>
     <div class="col-md p-0 pl-md-2">
       <div class="card p-3">
         <h3 class="card-title">{{(transactions.data | transactionFilter:'loan').length}}</h3>
         <p class="card-text mb-4">Loans</p>
-        <a href="#" class="btn btn-primary align-self-end">See all</a>
+        <a routerLink="navigator" [queryParams]="{tab: 2}" class="btn btn-primary align-self-end">See all</a>
       </div>
     </div>
   </div>
