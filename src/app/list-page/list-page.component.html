@@ -33,7 +33,7 @@
       >Investments</a>
     </li>
   </ul>
-  <table class="table col-md-8 mx-auto mb-5">
+  <table class="table col-md-8 mx-auto mb-5" *ngIf="filteredTransactions.length; else message">
     <thead>
     <tr>
       <th class="text-center border-primary border-top-0" scope="col">Name</th>
@@ -41,12 +41,17 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td class="text-center">Mark Otto</td>
-      <td class="text-center">+1 (901) 404-2928 </td>
+    <tr *ngFor="let transaction of filteredTransactions">
+      <td class="text-center">{{transaction.name.first + ' ' + transaction.name.last}}</td>
+      <td class="text-center">{{transaction.phone}}</td>
     </tr>
     </tbody>
   </table>
+
+  <ng-template #message>
+    <p class="text-center">There are no transactions</p>
+  </ng-template>
+
   <a routerLink="/" class="btn btn-primary">Back to summary</a>
 </div>
 
